@@ -7,12 +7,26 @@ static async create(title,description,date,location,capacity,userID){
         return result.insertId;
 
 }
-static async getAll(offset){
-     let limit = 5;
-            const [rows] = await db.execute(
-        `SELECT * FROM event ORDER BY date DESC LIMIT ? OFFSET ?`, 
-        [limit, offset]
-    );
+static async getAll(search,sort){
+    let result;
+    let sql = `Select * FROM event`;
+    const params = [];
+
+
+    console.log(search)
+    if (search && search.trim() !== "") {
+        sql += ` WHERE title LIKE '%${search}%'`; 
+    }
+
+    if (sort === 'title'){
+        sql += " ORDER BY title ASC";
+    }    
+    else {
+        sql += " ORDER BY date DESC";  
+    }
+
+        result = await db.execute(sql);
+        console.log(sql)
          if(result.length === 0)
             return null
         return result;

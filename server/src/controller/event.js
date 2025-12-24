@@ -28,14 +28,10 @@ static async create(req,res){
 }
 static async read (req,res){
     try{
-        const { page, search,sort } = req.params
-        let offset = (parseInt(page,10) - 1 ) * 5
-        console.log(page)
-
-        const [result] = await eventModels.getAll(offset);
+        const {search,sort} = req.query
+        console.log(search)
+        const [result] = await eventModels.getAll(search,sort);
         return res.status(200).json(result);
-
-
 
     }catch(err){
         console.error(err);
@@ -45,7 +41,6 @@ static async read (req,res){
 static async readByID (req,res){
     try{
     const eventID = req.params.id
-        console.log(eventID);
     const [result] = await eventModels.getByID(eventID);
     return res.status(200).json(result);
     }catch(err){
