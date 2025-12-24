@@ -10,7 +10,6 @@ static async create(title,description,date,location,capacity,userID){
 static async getAll(search,sort){
     let result;
     let sql = `Select * FROM event`;
-    const params = [];
 
 
     console.log(search)
