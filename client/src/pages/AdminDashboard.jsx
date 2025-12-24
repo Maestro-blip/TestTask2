@@ -5,7 +5,7 @@ const AdminDashboard = () => {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
-    const { data } = await api.get('/events'); // Передбачається, що адмін бачить все без пагінації, або додай її сюди
+    const { data } = await api.get('/events');
     setEvents(data);
   };
 

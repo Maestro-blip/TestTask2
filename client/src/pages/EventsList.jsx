@@ -40,10 +40,10 @@ const EventsList = () => {
 
       <div style={{ display: 'grid', gap: '10px' }}>
         {events.map(event => (
-          <div key={event.id} style={{ border: '1px solid #ddd', padding: '10px' }}>
+          <div key={event.event_id} style={{ border: '1px solid #ddd', padding: '10px' }}>
             <h3>{event.title}</h3>
             <p>{new Date(event.date).toLocaleDateString()} - {event.location}</p>
-            <Link to={`/events/${event.id}`}>Деталі</Link>
+            <Link to={`/events/${event.event_id}`}>Деталі</Link>
           </div>
         ))}
       </div>

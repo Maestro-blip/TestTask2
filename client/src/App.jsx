@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import EventDetails from './pages/EventDetails';
 import Profile from './pages/Profile';
 import AdminDashboard from './pages/AdminDashboard';
+import CreateEvent from './components/CreateEvent';
 
 // Компонент для захисту роутів
 const PrivateRoute = ({ children, roleRequired }) => {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={<EventsList />} />
             <Route path="/events/:id" element={<EventDetails />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/create-event" element={<CreateEvent />} />
             
             {/* Приватні роути */}
             <Route path="/me" element={

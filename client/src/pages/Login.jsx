@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true); // Перемикач Login/Register
+  const [isLogin, setIsLogin] = useState(true); 
   const [formData, setFormData] = useState({ email: '', password: '' });
   const { login, register } = useAuth();
   const navigate = useNavigate();
